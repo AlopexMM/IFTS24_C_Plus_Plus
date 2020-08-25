@@ -7,7 +7,7 @@ Realizar un diagrama que muestre en pantalla los números desde un valor inicial
 
 using namespace std;
 
-main()
+int main()
 {
     int nroInicial, nroFinal;
 
@@ -19,4 +19,6 @@ main()
     for(nroFinal; nroFinal >= nroInicial; nroFinal--){
         cout << nroFinal << endl;
     }
+
+    return 0;
 }

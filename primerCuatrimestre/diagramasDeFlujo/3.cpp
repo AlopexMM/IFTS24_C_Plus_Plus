@@ -6,12 +6,12 @@ using namespace std;
 
 int main() {
 
-    int valor1, valor2, suma = 0;
+    int valores[2] = {}, suma = 0;
 
-    cout << "Ingrese un numero: "; cin >> valor1;
-    cout << "Ingrese un numero: "; cin >> valor2;
+    cout << "Ingrese un numero: "; cin >> valores[0];
+    cout << "Ingrese un numero: "; cin >> valores[1];
 
-    suma = valor1 + valor2;
+    suma = valores[0] + valores[1];
 
     cout << "La suma de los valores ingresados es: " << suma << endl;
 

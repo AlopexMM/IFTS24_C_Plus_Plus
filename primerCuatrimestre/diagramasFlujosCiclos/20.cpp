@@ -4,7 +4,7 @@
 
 using namespace std;
 
-main()
+int main()
 {
     int i = 1, cantNumeros = 0, suma = 0;
     bool bandera = true;
@@ -25,4 +25,5 @@ main()
 
     cout << "La suma de los primeros 20 números impares es: " << suma << endl;
 
+    return 0;
 }

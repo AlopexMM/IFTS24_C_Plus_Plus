@@ -7,11 +7,13 @@ pantalla 8 - 16 - 524 - etc(No se ingresan valores por teclado)
 
 using namespace std;
 
-main()
+int main()
 {
     for(int i = 1; i <= 500; i++){
         if(i % 8 == 0) {
             cout << i << endl;
         }
     }
+
+    return 0;
 }

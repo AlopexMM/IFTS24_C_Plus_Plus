@@ -1,13 +1,14 @@
 // Se ingresan un conjunto de n alturas de personas por teclado.Mostrar la altura promedio de las personas.
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-main()
+int main()
 {   
-    float alturas, altura, promedio;
-    int cantAlturas = 0;
+    float altura, promedio = 0;
+    vector<float> alturas;
     bool bandera = true;
     
     cout << "Vamos a ingresar la altura de todas las personas.\nSi deseas terminar la carga deseas terminar la carga de datos ingresa 0" << endl;
@@ -19,15 +20,17 @@ main()
             bandera = false;
         }
         else {
-            alturas += altura;
-            cantAlturas += 1;
+            alturas.push_back(altura);
         }
     }
 
-    promedio = alturas / cantAlturas;
+    for(int i = 0; i < (int)alturas.size(); i++){
+        promedio += alturas[i];
+    }
+    promedio = promedio / (int)alturas.size();
 
     cout << "------------------------" << endl;
     cout << "El promedio de altura entre las personas es: " << promedio << endl;
 
-
+    return 0;
 }

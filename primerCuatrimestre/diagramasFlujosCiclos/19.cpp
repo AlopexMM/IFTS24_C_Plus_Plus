@@ -4,15 +4,21 @@
 
 using namespace std;
 
-main()
+int main()
 {
-    float numero, suma = 0;
+    float suma = 0;
+    float numeros[10] = {};
+
     for(int i = 0; i < 10; i++){
         cout << "Ingrese un numero: ";
-        cin >> numero;
-        suma += numero;
-        cout << "La sumatoria es: " << suma << endl;
-        cout << "---------------------------" << endl;
+        cin >> numeros[i];
     }
 
+    for(int i = 0; i < 10; i++){
+        suma += numeros[i];
+    }
+
+    cout << "La sumatoria es: " << suma << endl;
+
+    return 0;
 }

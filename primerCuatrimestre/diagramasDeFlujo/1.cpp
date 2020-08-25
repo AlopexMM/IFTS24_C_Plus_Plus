@@ -11,15 +11,15 @@ Pase 3 Salida por pantallas de base, altura y superficie.
 
 int main(){
 
-    int base, altura, superficie;
+    int datos[3];
 
-    cout << "Ingrese la base: "; cin >> base;
-    cout << "Ingrese la altura: ";cin >> altura;
-    superficie = base * altura;
+    cout << "Ingrese la base: "; cin >> datos[0];
+    cout << "Ingrese la altura: ";cin >> datos[1];
+    datos[2] = datos[0] * datos[1];
     
-    cout << "Base: " << base << endl;
-    cout << "Altura: " << altura << endl;
-    cout << "Superficie: " << superficie << endl;
+    cout << "Base: " << datos[0] << endl;
+    cout << "Altura: " << datos[1] << endl;
+    cout << "Superficie: " << datos[2] << endl;
 
 
     return 0;
