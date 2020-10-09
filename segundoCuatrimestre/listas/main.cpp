@@ -16,17 +16,31 @@ Opción 9: Mostrar todos los datos de la lista en orden ingresado (cola).
 Opción 10: Mostrar todos los datos de la lista en orden inverso (pila).
 Opción 11: Ordenar de menor a mayor los datos.
 Opción 12: Salir del programa.
+
+Traladarlo al uso de funciones
 */
 
 #include <iostream>
 
 using namespace std;
 
+void createList(int len);
+void setter(int len);
+void getter(int len);
+void printMaxValue(int len); 
+void printMinValue(int len);
+void printAverage(int len);
+void printOddNumbers(int len);
+void printNumbersTailOrder(int len);
+void printNumbersReverseOrder(int len);
+void orderMinMax(int len);
+
+int * listN;
+
 int main () {
 
     int select, len = 28;
     int flag = true;
-    int* listN;
 
     cout << "**** Bienvenido a sistemas AlopexMM ****" << endl;
     while(flag){
@@ -50,121 +64,57 @@ int main () {
         {
         case 1:
             {
-                listN[len];
-                for (int i = 0; i < 28; i++) {
-                    cout << "Dato " << i+1 << ": ";
-                    cin >> listN[i];
-                }
+                createList(len);
                 break;
             }
         case 2: {
             cout << "De que tamaño es la lista?" << endl;
             cout << "Tamaño: ";
             cin >> len;
-            listN[len];
-            for (int i = 0; i < len; i++){
-                cout << "Dato " << i+1 << ": ";
-                cin >> listN[i];
-            }
+            createList(len);
             break;
         }   
         case 3: {
             // Setter
-            int position;
-            cout << "Que posicion de la lista desea modificar: ";
-            cin >> position;
-            if (position < len) {
-                cout << "Dato " << position << ": ";
-                cin >> listN[position - 1];
-            } else {
-                cout << "Posicion seleccionada no existe en la lista." << endl;
-            }
-            
+            setter(len);
             break;
         }
         case 4: {
             // Getter
-            int position;
-            cout << "Que posicion desea ver: ";
-            cin >> position;
-            if (position < len ) {
-                cout << "Dato " << position << ": " << listN[position - 1] << endl;
-            } else {
-                cout << "Posicion seleccionada no existe en la lista." << endl;
-            }
-            
+            getter(len);
             break;
         }
         case 5: {
-            
-            int maxData = -10000;
-            for (int i = 0; i < len; i++ ) {
-                if (listN[i] > maxData) {
-                    maxData = listN[i];
-                }
-            }
-            cout << "El Dato mas elevado es: " << maxData << endl;
+            printMaxValue(len);            
             break;
         }
                 
         case 6: {
-            int minData = 10000;
-            for (int i = 0; i < len; i++ ) {
-                if (listN[i] < minData) {
-                    minData = listN[i];
-                }
-            }
-            cout << "El Dato menos elevado es: " << minData << endl;
+            printMinValue(len);
             break;
         }
         case 7: {
-            int average, sum = 0;
-            for (int i = 0; i < len; i++) {
-                sum += listN[i];
-            }
-
-            average = sum / len;
-            cout << "El promedio es: " << average << endl;
+            printAverage(len);
             break;
         }
                 
         case 8: {
-            for (int i = 0; i < len; i++) {
-                if ((listN[i]%2) != 0) {
-                    cout << listN[i] << endl;
-                }
-            }
+            printOddNumbers(len);
             break; 
         }
                
         case 9: {
-            for (int i = 0; i < len; i++){
-                cout << listN[i] << endl;
-            }
+            printNumbersTailOrder(len);
             break;
         }
                 
         case 10: {
-            for (int i = len - 1; i >= 0; i--) {
-                cout << listN[i] << endl;
-            }
+            printNumbersReverseOrder(len);
             break; 
         }
                
         case 11: {
-            int aux;
-            for (int i = 1; i < len; i++){
-                for (int j = 0; j < len - i; j++) {
-                    if (listN[j] > listN[j + 1]){
-                        aux = listN[j];
-                        listN[j] = listN[j+1];
-                        listN[j+1] = aux;
-                    }
-                }
-            }
-            for (int i = 0; i < len; i++){
-                cout << listN[i] << endl;
-            }
+            orderMinMax(len);
             break;
         }
                 
@@ -181,4 +131,101 @@ int main () {
     
 
     return 0;
+}
+
+void createList(int len) {
+    for (int i = 0; i < len; i++) {
+        cout << "Dato " << i+1 << ": ";
+        cin >> listN[i];
+    }
+}
+
+void setter(int len) {
+    int position;
+    cout << "Que posicion de la lista desea modificar: ";
+    cin >> position;
+    if (position < len) {
+        cout << "Dato " << position << ": ";
+        cin >> listN[position - 1];
+    } else {
+        cout << "Posicion seleccionada no existe en la lista." << endl;
+    }
+
+}
+
+void getter(int len) {
+    int position;
+    cout << "Que posicion desea ver: ";
+    cin >> position;
+    if (position < len ) {
+        cout << "Dato " << position << ": " << listN[position - 1] << endl;
+    } else {
+        cout << "Posicion seleccionada no existe en la lista." << endl;
+    }
+}
+
+void printMaxValue(int len) {
+   int maxData = -10000;
+    for (int i = 0; i < len; i++ ) {
+        if (listN[i] > maxData) {
+            maxData = listN[i];
+        }
+    }
+    cout << "El Dato mas elevado es: " << maxData << endl; 
+}
+
+void printMinValue(int len) {
+    int minData = 10000;
+    for (int i = 0; i < len; i++ ) {
+        if (listN[i] < minData) {
+            minData = listN[i];
+        }
+    }
+    cout << "El Dato menos elevado es: " << minData << endl;
+}
+
+void printAverage(int len) {
+    int average, sum = 0;
+    for (int i = 0; i < len; i++) {
+        sum += listN[i];
+    }
+
+    average = sum / len;
+    cout << "El promedio es: " << average << endl;
+}
+
+void printOddNumbers(int len){
+    for (int i = 0; i < len; i++) {
+        if ((listN[i]%2) != 0) {
+            cout << listN[i] << endl;
+        }
+    }
+}
+
+void printNumbersTailOrder(int len) {
+    for (int i = 0; i < len; i++) {
+        cout << listN[i] << endl;
+    }
+}
+
+void printNumbersReverseOrder(int len) {
+    for (int i = len - 1; i >= 0; i--) {
+        cout << listN[i] << endl;
+    }
+}
+
+void orderMinMax(int len) {
+    int aux;
+    for (int i = 1; i < len; i++) {
+        for (int j = 0; j < len - i; j++) {
+            if (listN[j] > listN[j + 1]) {
+                aux = listN[j];
+                listN[j] = listN[j+1];
+                listN[j+1] = aux;
+            }
+        }
+    }
+    for (int i = 0; i < len; i++) {
+        cout << listN[i] << endl;
+    }
 }
