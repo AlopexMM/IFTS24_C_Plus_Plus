@@ -4,16 +4,37 @@
 
 using namespace std;
 
-main () {
-    int ingreso, aux = 9999;
+int list[6];
 
-    for(int i = 0; i < 6; i++){
+void requestNumbers();
+void minNumber();
+
+int main () {
+
+    requestNumbers();
+    minNumber();
+    
+    return 0;
+}
+
+void requestNumbers() {
+    cout << "Por favor ingrese 6 numeros" << endl;
+
+    for (int i = 0; i < 6; i++) {
         cout << "Ingrese un nro: ";
-        cin >> ingreso;
-        if ( ingreso < aux) {
-            aux = ingreso;
+        cin >> list[i];
+    }
+}
+
+void minNumber() {
+
+    int min = list[0];
+
+    for (int i = 1; i < 6; i++) {
+        if (list[i] < min) {
+            min = list[i];
         }
     }
 
-    cout << "El menor nro ingresado: " << aux << endl;
+    cout << "El nro menor ingresado es: " << min << endl;
 }
