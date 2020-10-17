@@ -8,38 +8,44 @@ Informar con un mensaje cuál de las dos listas tiene un valor acumulado mayor
 
 using namespace std;
 
-#include <array>
+void llenarArray(int lista[], int tamanoLista);
+string compararArrays(int lista1[], int lista2[], int tamanoListas);
 
-
-
-main () {
-    int lista1 = 0, lista2 = 0, numero;
+int main () {
+    int lista1[15];
+    int lista2[15];
     
-    for (int i = 0; i < 15; i++){
-        cout << "Ingrese el valor a agregar para la lista 1: ";
-        cin >> numero;
-        lista1 += numero;
+    cout << "Primera lista." << endl;
+    llenarArray(lista1, 15);
+    cout << "Segunda lista." << endl;
+    llenarArray(lista2, 15);
+
+    cout << compararArrays(lista1, lista2, 15) << endl;
+    
+    return 0;
+}
+
+void llenarArray(int lista[], int tamanoLista) {
+    
+    for (int i = 0; i < tamanoLista; i++) {
+        cout << "Ingrese el valor " << i + 1 << ":";
+        cin >> lista[i];
+    }
+}
+
+string compararArrays(int lista1[], int lista2[], int tamanoListas) {
+    cout << "------------------" << endl;
+    bool sonIguales = true;
+    for (int i = 0; i < tamanoListas; i++) {
+        if (lista1[i] != lista2[i]) {
+            sonIguales = false;
+            break;
+        }
     }
 
-    for (int i = 0; i < 15; i++)
-    {
-        cout << "Ingrese el valor a agregar para la lista 2: ";
-        cin >> numero;
-        lista2 += numero;
+    if (sonIguales) {
+        return "Son iguales.";
+    } else {
+        return "Son distintas.";
     }
-
-    if(lista1 == lista2) 
-    {
-        cout << "Las listas son iguales" << endl;
-    }
-    else if (lista1 > lista2)
-    {
-        cout << "Lista 1 mayor que lista 2" << endl;
-    }
-    else
-    {
-        cout << "Lista 2 mayor que lista 1" << endl;
-    }
-    
-    
 }
